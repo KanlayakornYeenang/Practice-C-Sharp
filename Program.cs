@@ -22,6 +22,5 @@ public class Program
 
         bool checkALL = checkCIA || checkFBI || checkNSA;
         Console.WriteLine(checkALL);
-        Console.ReadLine();
     }
 }
