@@ -2,9 +2,9 @@
 
 namespace ConsoleApp4
 {
-    class Trade
+    public class Trade
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             Console.WriteLine("Choose your mode (time/price) : ");
             string mode = Console.ReadLine();
@@ -24,7 +24,7 @@ namespace ConsoleApp4
             bool checktime = (mode == "time" && x > 0 && mode != "price");
             if (checktime == true)
             {
-                Console.WriteLine(x + " , " + (x-1)*(x-1));
+                Console.WriteLine(x + " , " + (x - 1) * (x - 1));
             }
             else if (x < 0 && mode == "time")
             {
@@ -37,6 +37,5 @@ namespace ConsoleApp4
                 Console.WriteLine(Math.Sqrt(Math.Abs(y)) + " , " + y);
             }
         }
-
     }
 }
