@@ -1,18 +1,20 @@
 ﻿using System;
 
-namespace ConsoleApp4
+namespace Trade
 {
-    public class Trade
+    class Program
     {
-        public static void Main(string[] args)
+        static void Main(string[] args)
         {
             Console.WriteLine("Choose your mode (time/price) : ");
-            string mode = Console.ReadLine();
+            string mode;
+            mode = Console.ReadLine();
 
-            bool checkmode = (mode == "price" || mode == "time");
-            if (checkmode == false)
+            while (mode != "price" && mode != "time")
             {
                 Console.WriteLine("Invalid mode");
+                Console.WriteLine("Choose your mode (time/price) : ");
+                mode = Console.ReadLine();
             }
 
             Console.WriteLine("Insert your position mouse (x) : ");
@@ -21,20 +23,24 @@ namespace ConsoleApp4
             Console.WriteLine("Insert your position mouse (y) : ");
             double y = double.Parse(Console.ReadLine());
 
-            bool checktime = (mode == "time" && x > 0 && mode != "price");
-            if (checktime == true)
+            if (mode == "price" && mode != "time" && x > 0)
             {
-                Console.WriteLine(x + " , " + (x - 1) * (x - 1));
+                Console.WriteLine(Math.Sqrt(Math.Abs(y)) + " , " + y);
             }
-            else if (x < 0 && mode == "time")
+
+            else if (mode == "price" && mode != "time" && x < 0)
             {
                 Console.WriteLine("Invalid mouse position");
             }
 
-            bool checkprice = (mode == "price" && mode != "time");
-            if (checkprice == true)
+            else if (mode == "time" && mode != "price" && x > 0)
             {
-                Console.WriteLine(Math.Sqrt(Math.Abs(y)) + " , " + y);
+                Console.WriteLine(x + " , " + (x - 1) * (x - 1));
+            }
+
+            else if (mode == "time" && mode != "price" && x < 0)
+            {
+                Console.WriteLine("Invalid mouse position");
             }
         }
     }
