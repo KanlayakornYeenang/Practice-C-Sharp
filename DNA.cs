@@ -49,7 +49,12 @@ namespace DNA
                     Console.WriteLine("Current half DNA sequence : {0}", DNA);
                     Console.WriteLine("Do you want to replicate it ? (Y/N) : ");
                     YN = Console.ReadLine();
-                    YN = YNcheck(YN);
+                    while (YN != "Y" && YN != "N")
+                    {
+                        Console.WriteLine("Please input Y or N.");
+                        Console.WriteLine("Do you want to replicate it ? (Y/N) : ");
+                        YN = Console.ReadLine();
+                    }
                     if (YN == "Y")
                     {
                         Console.WriteLine("Replicated half DNA sequence : {0}" , ReplicateSeqeunce(DNA));
@@ -61,12 +66,7 @@ namespace DNA
                     {
                         Console.WriteLine("Do you want to process another sequence ? (Y/N) : ");
                         YN = Console.ReadLine();
-                        while (YN != "Y" && YN != "N")
-                        {
-                            Console.WriteLine("Please input Y or N.");
-                            Console.WriteLine("Do you want to replicate it ? (Y/N) : ");
-                            YN = Console.ReadLine();
-                        }
+                        YN = YNcheck(YN);
                     }
                 }
                 else
