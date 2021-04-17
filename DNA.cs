@@ -61,7 +61,12 @@ namespace DNA
                     {
                         Console.WriteLine("Do you want to process another sequence ? (Y/N) : ");
                         YN = Console.ReadLine();
-                        YN = YNcheck(YN);
+                        while (YN != "Y" && YN != "N")
+                        {
+                            Console.WriteLine("Please input Y or N.");
+                            Console.WriteLine("Do you want to replicate it ? (Y/N) : ");
+                            YN = Console.ReadLine();
+                        }
                     }
                 }
                 else
